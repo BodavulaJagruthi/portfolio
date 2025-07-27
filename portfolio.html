@@ -5,7 +5,275 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jagruthi Bodavula - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="portfolio.css">
+  <style>
+    :root {
+      --primary-color: #6c5ce7;
+      --secondary-color: #a29bfe;
+      --accent-color: #fd79a8;
+      --text-color: #2d3436;
+      --light-color: #f9f9f9;
+      --dark-color: #2d3436;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-color);
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      color: var(--light-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--light-color);
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      padding: 80px 0;
+      background-color: #fff;
+    }
+
+    .section:nth-child(even) {
+      background-color: #f0f0f0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: var(--primary-color);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+      display: block;
+      margin: 10px auto 0;
+    }
+
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-content {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skill-item {
+      background-color: #fff;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+      font-weight: 600;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.05);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-item {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-info {
+      padding: 20px;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .btn {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .profile {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,7 +292,7 @@
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Jagruthi Bodavula</h1>
-      <p>Python and Web Developer</p>
+      <p>Python & Full-Stack Web Developer | Problem Solver | Tech Enthusiast</p>
     </div>
   </section>
 
@@ -33,7 +301,7 @@
       <h2 class="section-title">About Me</h2>
       <div class="profile">
         <div class="profile-content">
-          <p>Hello! I'm Jagruthi Bodavula, a passionate developer with expertise in Python and web technologies. I love creating interactive and responsive web applications that provide an excellent user experience.</p>
+          <p>Hello! I'm Jagruthi Bodavula, a passionate developer skilled in Python, HTML, CSS, JavaScript, and backend technologies. I love building clean, user-friendly applications and continuously learning new tools to solve real-world problems efficiently.</p>
         </div>
       </div>
     </div>
@@ -43,24 +311,13 @@
     <div class="container">
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
-        <div class="skill-item">
-          <h3>Python</h3>
-        </div>
-        <div class="skill-item">
-          <h3>HTML</h3>
-        </div>
-        <div class="skill-item">
-          <h3>CSS</h3>
-        </div>
-        <div class="skill-item">
-          <h3>JavaScript</h3>
-        </div>
-        <div class="skill-item">
-          <h3>SQL</h3>
-        </div>
-        <div class="skill-item">
-          <h3>Git</h3>
-        </div>
+        <div class="skill-item"><h3>Python</h3></div>
+        <div class="skill-item"><h3>HTML</h3></div>
+        <div class="skill-item"><h3>CSS</h3></div>
+        <div class="skill-item"><h3>JavaScript</h3></div>
+        <div class="skill-item"><h3>PHP</h3></div>
+        <div class="skill-item"><h3>SQL</h3></div>
+        <div class="skill-item"><h3>Git & GitHub</h3></div>
       </div>
     </div>
   </section>
@@ -71,11 +328,22 @@
       <div class="projects-grid">
         <div class="project-item">
           <div class="project-info">
-            <h3 class="project-title">Doctor Consultancy</h3>
-            <p>A system to check slot availability and notify patients of emergency cancellations.</p>
+            <h3 class="project-title">Doctor Consultancy System</h3>
+            <p class="project-desc">Web-based app to check doctor availability and send notifications on emergency slot cancellations. Built using HTML, CSS, JS, and PHP.</p>
           </div>
         </div>
-        <!-- Add more project items here -->
+        <div class="project-item">
+          <div class="project-info">
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-desc">Personal website showcasing my skills, projects, and contact details using HTML, CSS, and JS.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h3 class="project-title">Authentication System</h3>
+            <p class="project-desc">Sign-up and login system built using PHP with frontend in HTML, CSS, and JavaScript.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
