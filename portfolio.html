@@ -147,20 +147,6 @@
       gap: 30px;
     }
 
-    .profile-image {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     .profile-content {
       max-width: 600px;
       text-align: center;
@@ -219,6 +205,14 @@
       font-size: 0.95rem;
     }
 
+    .project-links a {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--accent-color);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
     .contact-form {
       max-width: 600px;
       margin: 0 auto;
@@ -256,6 +250,24 @@
 
     .btn:hover {
       background-color: var(--accent-color);
+    }
+
+    footer {
+      background: var(--dark-color);
+      color: var(--light-color);
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      margin: 0 10px;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--secondary-color);
     }
 
     @media (max-width: 768px) {
@@ -301,7 +313,7 @@
       <h2 class="section-title">About Me</h2>
       <div class="profile">
         <div class="profile-content">
-          <p>Hello! I'm Jagruthi Bodavula, a passionate developer skilled in Python, HTML, CSS, JavaScript, and backend technologies. I love building clean, user-friendly applications and continuously learning new tools to solve real-world problems efficiently.</p>
+          <p>Hello! I'm Jagruthi Bodavula, a passionate developer skilled in Python, Django, HTML, CSS, JavaScript, SQL. I love building clean, user-friendly applications and continuously learning new tools to solve real-world problems efficiently.</p>
         </div>
       </div>
     </div>
@@ -312,11 +324,12 @@
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
         <div class="skill-item"><h3>Python</h3></div>
+        <div class="skill-item"><h3>Django</h3></div>
         <div class="skill-item"><h3>HTML</h3></div>
         <div class="skill-item"><h3>CSS</h3></div>
         <div class="skill-item"><h3>JavaScript</h3></div>
-        <div class="skill-item"><h3>PHP</h3></div>
         <div class="skill-item"><h3>SQL</h3></div>
+        <div class="skill-item"><h3>PHP</h3></div>
         <div class="skill-item"><h3>Git & GitHub</h3></div>
       </div>
     </div>
@@ -328,20 +341,29 @@
       <div class="projects-grid">
         <div class="project-item">
           <div class="project-info">
-            <h3 class="project-title">Doctor Consultancy System</h3>
-            <p class="project-desc">Web-based app to check doctor availability and send notifications on emergency slot cancellations. Built using HTML, CSS, JS, and PHP.</p>
+            <h3 class="project-title">To-do</h3>
+            <p class="project-desc">Adding or removing tasks that to be done by us can be done by this. It was build using Django</p>
+            <div class="project-links">
+              <a href="https://github.com/BodavulaJagruthi/todo-django" target="_blank">GitHub</a>
+            </div>
           </div>
         </div>
         <div class="project-item">
           <div class="project-info">
             <h3 class="project-title">Portfolio Website</h3>
             <p class="project-desc">Personal website showcasing my skills, projects, and contact details using HTML, CSS, and JS.</p>
+            <div class="project-links">
+              <a href="https://github.com/BodavulaJagruthi/portfolio" target="_blank">GitHub Repo</a>
+            </div>
           </div>
         </div>
         <div class="project-item">
           <div class="project-info">
             <h3 class="project-title">Authentication System</h3>
             <p class="project-desc">Sign-up and login system built using PHP with frontend in HTML, CSS, and JavaScript.</p>
+            <div class="project-links">
+              <a href="https://github.com/BodavulaJagruthi/registrationformusingphp" target="_blank">GitHub Repo</a>
+            </div>
           </div>
         </div>
       </div>
@@ -369,9 +391,16 @@
     </div>
   </section>
 
+  <footer>
+    <p>Connect with me:</p>
+    <a href="https://github.com/yourusername" target="_blank">GitHub</a> | 
+    <a href="https://linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
+    <p>&copy; 2025 Jagruthi Bodavula. All rights reserved.</p>
+  </footer>
+
   <script>
     // Add smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
